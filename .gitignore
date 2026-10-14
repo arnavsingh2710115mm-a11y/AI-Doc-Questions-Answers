@@ -1,0 +1,66 @@
+# Credentials and local configuration
+.env
+.env.*
+*.env
+!.env.example
+.streamlit/secrets.toml
+.aws/
+credentials.json
+service-account*.json
+*.pem
+*.key
+
+# Python caches and build output
+__pycache__/
+*.py[cod]
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual and Conda environments (keep dependency manifests)
+.venv/
+venv/
+env/
+ENV/
+.conda/
+conda-env/
+.condarc
+
+# Local databases and generated ChromaDB storage
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+chroma/
+chroma_db/
+chromadb/
+.chroma/
+.chromadb/
+data/chroma*/
+
+# Temporary files and local tooling
+tmp/
+temp/
+.cache/
+*.tmp
+*.temp
+*.log
+*.bak
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+Desktop.ini
+.agents/
+.codex/
