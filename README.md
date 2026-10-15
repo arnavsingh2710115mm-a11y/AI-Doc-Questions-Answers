@@ -1,5 +1,10 @@
 # AI-Powered Document Question Answering System
 
+**Live application:** https://ai-doc-questions-answers-cdhtiauopjdqnrqipajjeu.streamlit.app
+
+**Source code:** https://github.com/arnavsingh2710115mm-a11y/AI-Doc-Questions-Answers
+
+
 A student project that lets users upload a PDF and ask questions about its contents. The application uses Retrieval-Augmented Generation (RAG): ChromaDB finds relevant document passages, and Google Gemini uses those passages to generate an answer with filename and page citations.
 
 The Streamlit interface includes a document upload workspace, processing status, question form, answer cards, and expandable views of extracted text and retrieved passages.
@@ -103,6 +108,23 @@ python -m streamlit run app.py
 
 Open the local URL shown in the terminal.
 
+## Deploy on Streamlit Community Cloud
+
+The live version is hosted on [Streamlit Community Cloud](https://ai-doc-questions-answers-cdhtiauopjdqnrqipajjeu.streamlit.app). To deploy your own copy:
+
+1. Fork this repository or use your own copy on GitHub.
+2. On [share.streamlit.io](https://share.streamlit.io/), create a new public app from the GitHub repository.
+3. Select the `main` branch, set the main file path to `app.py`, and choose Python 3.12.
+4. In **Advanced settings → Secrets**, add your **own** Gemini API key using TOML:
+
+   ```toml
+   GEMINI_API_KEY = "your-own-gemini-api-key"
+   ```
+
+5. Deploy and test PDF uploading and one document-grounded question.
+
+Do not commit the real key to GitHub. The live application uses a key configured privately in Streamlit's secrets; visitors do not need to provide the project owner's key.
+
 ## How to use the website
 
 1. Upload a PDF in **Document Upload**.
@@ -112,6 +134,15 @@ Open the local URL shown in the terminal.
 5. Expand the extracted text or retrieved chunks if you want to inspect the evidence.
 
 The application works with one uploaded PDF at a time. Replacing or removing it clears the previous index. Scanned PDFs without readable text require OCR outside this application. Retrieved passages are sent to the Gemini API for answer generation.
+
+## Testing and limitations
+
+The application has been manually tested with a text-based project PDF: it uploaded and indexed the PDF, retrieved relevant passages, generated a cited Gemini answer, and returned a not-found message for an unrelated question. The deployed Streamlit version was also tested with a relevant PDF question.
+
+- Supports one text-based PDF at a time; scanned/image-only PDFs require OCR, which is not implemented.
+- The Chroma index exists only for the current session and is not persisted.
+- Uses an external Gemini API for answer generation; **do not upload confidential or sensitive documents** unless your usage policies permit sharing their contents with that provider.
+- Gemini free-tier quotas and model availability may change. Responses and citations should be checked against the original source.
 
 ## Project structure
 
