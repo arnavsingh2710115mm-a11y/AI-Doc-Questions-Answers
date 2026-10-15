@@ -152,7 +152,6 @@ The application has been manually tested with a text-based project PDF: it uploa
 ├── answer_generator.py      # Gemini integration and grounding instructions
 ├── styles.css               # Custom interface styling
 ├── requirements.txt         # Application dependencies
-├── check_python.py          # Optional Python environment diagnostic
 ├── .streamlit/
 │   └── config.toml          # Light theme configuration
 ├── .env.example             # Empty environment-variable template
